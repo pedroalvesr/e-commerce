@@ -1,8 +1,8 @@
-package maximaecommerce.repository;
-
-import maximaecommerce.model.Cliente;
+package ecommerce.repository;
 
 import org.springframework.data.repository.CrudRepository;
+
+import ecommerce.model.Cliente;
 
 /**
  * @author Pedro Ribeiro

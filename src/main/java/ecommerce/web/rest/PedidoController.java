@@ -1,12 +1,7 @@
-package maximaecommerce.web.rest;
+package ecommerce.web.rest;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import maximaecommerce.model.Cliente;
-import maximaecommerce.model.Pedido;
-import maximaecommerce.repository.ClienteDAO;
-import maximaecommerce.repository.PedidoDAO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,6 +11,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+
+import ecommerce.model.Cliente;
+import ecommerce.model.Pedido;
+import ecommerce.repository.ClienteDAO;
+import ecommerce.repository.PedidoDAO;
 
 /**
  * @author Pedro Ribeiro

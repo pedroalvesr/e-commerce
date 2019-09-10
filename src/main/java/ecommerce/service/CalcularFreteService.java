@@ -1,4 +1,4 @@
-package maximaecommerce.service;
+package ecommerce.service;
 
 import java.util.Random;
 

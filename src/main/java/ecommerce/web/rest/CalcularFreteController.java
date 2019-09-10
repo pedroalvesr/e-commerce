@@ -1,13 +1,13 @@
-package maximaecommerce.web.rest;
+package ecommerce.web.rest;
 
 import java.util.Random;
-
-import maximaecommerce.service.CalcularFreteService;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import ecommerce.service.CalcularFreteService;
 
 /**
  * @author Pedro Ribeiro

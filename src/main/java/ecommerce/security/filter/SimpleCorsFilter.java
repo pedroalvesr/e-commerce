@@ -1,4 +1,4 @@
-package maximaecommerce.security.filter;
+package ecommerce.security.filter;
 
 import java.io.IOException;
 
