@@ -1,4 +1,4 @@
-# e-commerce
+# e-Commerce
 Se você está pesquisando sobre como montar um negócio para vender produtos na Internet, você está prestes a se juntar a um grupo de milhares de empreendedores que escolheram um nicho de mercado e foram se aventurar no mercado de E-commerce.
 
 ![gyphy-online-ecommerce-dashboard](https://user-images.githubusercontent.com/22817118/64640325-1af66080-d3e0-11e9-88c7-e7bf15239ba5.gif)
