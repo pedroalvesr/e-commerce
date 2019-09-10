@@ -1,0 +1,124 @@
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-content bg padding-y border-top">
+    <div class="container">
+        <div class="form-row" *ngIf="!carrinhoVazio">
+            <div class="form-group col-sm-9">
+                <label>Cliente</label>
+                <select class="form-control" [(ngModel)]="cliente">
+                    <option *ngFor="let cliente of clientes" [(ngValue)]="cliente"> {{ cliente?.nome }} </option>
+                </select>
+            </div> <!-- form-group end.// -->
+        </div>
+        <div class="row" *ngIf="!carrinhoVazio">
+            <main class="col-sm-9">
+                <div class="card">
+                    <table class="table table-hover shopping-cart-wrap">
+                        <thead class="text-muted">
+                            <tr>
+                                <th scope="col">Produto(s)</th>
+                                <th scope="col">Quatidade</th>
+                                <th scope="col">Preço</th>
+                                <th scope="col" class="text-right">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let produto of produtos">
+                                <td>
+                                    <figure class="media">
+                                        <div class="img-wrap"><img
+                                                src="{{ produto?.imagem || '../../assets/images/items/no-image-available.png' }}"
+                                                class="img-thumbnail img-sm"></div>
+                                        <figcaption class="media-body">
+                                            <h6 class="title text-truncate"> {{ produto?.nome }} </h6>
+                                            <dl class="dlist-inline small">
+                                                <dt>Código: </dt>
+                                                <dd> {{ produto?.codigo }} </dd>
+                                            </dl>
+                                            <dl class="dlist-inline small">
+                                                <dt>Cor: </dt>
+                                                <dd> {{ produto?.cor ? produto?.cor : 'Não informado' }} </dd>
+                                            </dl>
+                                        </figcaption>
+                                    </figure>
+                                </td>
+                                <td>
+                                    <select class="form-control" [(ngModel)]="produto.qtdeItem"
+                                        (change)="calcularTotal(produto.qtdeItem, produto.precoUnitario)">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <div class="price-wrap">
+                                        <var class="price">R$ {{ produto?.precoUnitario | number: '1.2-2' }} </var>
+                                        <!-- <small class="text-muted">(USD5 each)</small> -->
+                                    </div> <!-- price-wrap .// -->
+                                </td>
+                                <td class="text-right">
+                                    <!-- <a data-original-title="Save to Wishlist" title="" href=""
+                                        class="btn btn-outline-success" data-toggle="tooltip"> <i
+                                            class="fa fa-heart"></i></a> -->
+                                    <a class="btn btn-outline-danger" (click)="removerItem(produto)"> × Remover</a>
+                                </td>
+                            </tr>
+                            <tr class="odd" *ngIf="produtos < 1">
+                                <td valign="top" colspan="24" class="dataTables_empty" style="text-align: center">
+                                    Seu carrinho está vazio <a routerLink="/"><b>Continuar Comprando</b></a></td>
+
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> <!-- card.// -->
+
+            </main> <!-- col.// -->
+            <aside class="col-sm-3">
+                <!-- <p class="alert alert-success">Add USD 5.00 of eligible items to your order to qualify for FREE
+                    Shipping. </p> -->
+                <dl class="dlist-align">
+                    <dt>Preço Total: </dt>
+                    <dd class="text-right"> {{ precoTotal | number: '1.2-2' }} </dd>
+                </dl>
+                <dl class="dlist-align">
+                    <dt>Frete:</dt>
+                    <dd class="text-right"> {{ frete ? (frete | number: '1.2-2') : '-' }} </dd>
+                </dl>
+                <dl class="dlist-align h4">
+                    <dt>Total:</dt>
+                    <dd class="text-right"><strong> {{ (precoTotal + frete) | number: '1.2-2' }} </strong></dd>
+                </dl>
+                <hr>
+                <figure class="itemside mb-3">
+                    <aside class="aside"><img src="../../assets/images/icons/pay-visa.png"></aside>
+                    <div class="text-wrap small text-muted">
+                        Receba de Volta R$ 14,97 usando VISA
+                    </div>
+                </figure>
+                <figure class="itemside mb-3">
+                    <aside class="aside"> <img src="../../assets/images/icons/pay-mastercard.png"> </aside>
+                    <div class="text-wrap small text-muted">
+                        Pague com MasterCard e receba 40% de desconto. <br>
+                    </div>
+                </figure>
+                <br>
+                <a style="width: 80%;" class="btn  btn-outline-success offset-1" (click)="salvarPedido()"> COMPRAR </a>
+
+            </aside> <!-- col.// -->
+        </div>
+
+        <div *ngIf="carrinhoVazio">
+            <div style="text-align: center">
+                <img src="../../assets/images/items/carrinho-vazio.png" alt="" srcset="">
+            </div>
+            <br>
+            <h4 valign="top" colspan="24" class="dataTables_empty" style="text-align: center">
+                Seu carrinho está vazio <a routerLink="/"><b>Continue Comprando ;)</b></a></h4>
+        </div>
+
+
+    </div> <!-- container .//  -->
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->

@@ -1,0 +1,18 @@
+<div class="padding-y-sm">
+    <span><b>sua busca retornou {{ totalProdutos }} iten(s)</b></span>
+</div>
+
+<div class="row-sm">
+    <div class="col-md-3 col-sm-6" *ngFor="let produto of (produtos | filter: 'nome': filtro)">
+        <figure class="card card-product" [routerLink]="['/paginas/produto-detalhe', produto]">
+            <div class="img-wrap"> <img src="{{ produto?.imagem || '../../assets/images/items/no-image-available.png' }}"></div>
+            <figcaption class="info-wrap">
+                <a class="title">{{ produto?.nome }}</a>
+                <div class="price-wrap">
+                    <span class="price-new"><b>R$ {{ produto?.precoUnitario | number: '1.2-2' }}</b></span>
+                    <!-- <del class="price-old">$1980</del> -->
+                </div> <!-- price-wrap.// -->
+            </figcaption>
+        </figure> <!-- card // -->
+    </div> <!-- col // -->
+</div> <!-- row.// -->

@@ -1,0 +1,43 @@
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-content bg padding-y border-top">
+    <div class="container">
+
+        <div class="row" *ngIf="!carrinhoVazio">
+            <main class="col-sm-12">
+
+                <div class="card">
+                    <table class="table table-hover shopping-cart-wrap">
+                        <thead class="text-muted">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Valor Total</th>
+                                <th scope="col">Quant. de itens</th>
+                                <th scope="col">Valor do frete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let pedido of pedidos">
+                                <td> {{ pedido.id }} </td>
+                                <td>R$ {{ pedido.valorTotal | number: '1.2-2' }} </td>
+                                <td> {{ pedido.qtdeItens }} </td>
+                                <td> {{ pedido.valorFrete | number: '1.2-2' }} </td>
+                        </tbody>
+                    </table>
+                </div> <!-- card.// -->
+
+            </main> <!-- col.// -->
+        </div>
+
+        <div *ngIf="carrinhoVazio">
+            <div style="text-align: center">
+                <img src="../../assets/images/items/carrinho-vazio.png" alt="" srcset="">
+            </div>
+            <br>
+            <h4 valign="top" colspan="24" class="dataTables_empty" style="text-align: center">
+                Seu carrinho está vazio <a routerLink="/"><b>Continue Comprando ;)</b></a></h4>
+        </div>
+
+
+    </div> <!-- container .//  -->
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->
